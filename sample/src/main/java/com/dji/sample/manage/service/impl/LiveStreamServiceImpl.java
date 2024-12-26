@@ -68,56 +68,56 @@ public class LiveStreamServiceImpl implements ILiveStreamService {
     @Override
     public HttpResultResponse liveStart(LiveTypeDTO liveParam) {
         // Check if this lens is available live.
-        HttpResultResponse<DeviceDTO> responseResult = this.checkBeforeLive(liveParam.getVideoId());
-        if (HttpResultResponse.CODE_SUCCESS != responseResult.getCode()) {
-            return responseResult;
-        }
+//        HttpResultResponse<DeviceDTO> responseResult = this.checkBeforeLive(liveParam.getVideoId());
+//        if (HttpResultResponse.CODE_SUCCESS != responseResult.getCode()) {
+//            return responseResult;
+//        }
+//
+//        ILivestreamUrl url = LiveStreamProperty.get(liveParam.getUrlType());
+//        url = setExt(liveParam.getUrlType(), url, liveParam.getVideoId());
+//
+//        TopicServicesResponse<ServicesReplyData<String>> response = abstractLivestreamService.liveStartPush(
+//                SDKManager.getDeviceSDK(responseResult.getData().getDeviceSn()),
+//                new LiveStartPushRequest()
+//                        .setUrl(url)
+//                        .setUrlType(liveParam.getUrlType())
+//                        .setVideoId(liveParam.getVideoId())
+//                        .setVideoQuality(liveParam.getVideoQuality()));
+//
+//        if (!response.getData().getResult().isSuccess()) {
+//            return HttpResultResponse.error(response.getData().getResult());
+//        }
+//
+//        LiveDTO live = new LiveDTO();
+//
+//        switch (liveParam.getUrlType()) {
+//            case AGORA:
+//                break;
+//            case RTMP:
+//                live.setUrl(url.toString().replace("rtmp", "webrtc"));
+//                break;
+//            case GB28181:
+//                LivestreamGb28181Url gb28181 = (LivestreamGb28181Url) url;
+//                live.setUrl(new StringBuilder()
+//                        .append("webrtc://")
+//                        .append(gb28181.getServerIP())
+//                        .append("/live/")
+//                        .append(gb28181.getAgentID())
+//                        .append("@")
+//                        .append(gb28181.getChannel())
+//                        .toString());
+//                break;
+//            case RTSP:
+//                live.setUrl(response.getData().getOutput());
+//                break;
+//            case WHIP:
+//                live.setUrl(url.toString().replace("whip", "whep"));
+//                break;
+//            default:
+//                return HttpResultResponse.error(LiveErrorCodeEnum.URL_TYPE_NOT_SUPPORTED);
+//        }
 
-        ILivestreamUrl url = LiveStreamProperty.get(liveParam.getUrlType());
-        url = setExt(liveParam.getUrlType(), url, liveParam.getVideoId());
-
-        TopicServicesResponse<ServicesReplyData<String>> response = abstractLivestreamService.liveStartPush(
-                SDKManager.getDeviceSDK(responseResult.getData().getDeviceSn()),
-                new LiveStartPushRequest()
-                        .setUrl(url)
-                        .setUrlType(liveParam.getUrlType())
-                        .setVideoId(liveParam.getVideoId())
-                        .setVideoQuality(liveParam.getVideoQuality()));
-
-        if (!response.getData().getResult().isSuccess()) {
-            return HttpResultResponse.error(response.getData().getResult());
-        }
-
-        LiveDTO live = new LiveDTO();
-
-        switch (liveParam.getUrlType()) {
-            case AGORA:
-                break;
-            case RTMP:
-                live.setUrl(url.toString().replace("rtmp", "webrtc"));
-                break;
-            case GB28181:
-                LivestreamGb28181Url gb28181 = (LivestreamGb28181Url) url;
-                live.setUrl(new StringBuilder()
-                        .append("webrtc://")
-                        .append(gb28181.getServerIP())
-                        .append("/live/")
-                        .append(gb28181.getAgentID())
-                        .append("@")
-                        .append(gb28181.getChannel())
-                        .toString());
-                break;
-            case RTSP:
-                live.setUrl(response.getData().getOutput());
-                break;
-            case WHIP:
-                live.setUrl(url.toString().replace("whip", "whep"));
-                break;
-            default:
-                return HttpResultResponse.error(LiveErrorCodeEnum.URL_TYPE_NOT_SUPPORTED);
-        }
-
-        return HttpResultResponse.success(live);
+        return null;
     }
 
     @Override
