@@ -41,7 +41,7 @@ mqtt:
   # BASIC parameters are required.
   BASIC:
     protocol: MQTT # @see com.dji.sample.component.mqtt.model.MqttProtocolEnum
-    host: 192.168.110.110
+    host: 192.168.110.25
     port: 1883
     username: admin
     password: qy123456
@@ -50,7 +50,7 @@ mqtt:
     path:
   DRC:
     protocol: WS # @see com.dji.sample.component.mqtt.model.MqttProtocolEnum
-    host: 192.168.110.110
+    host: 192.168.110.25
     port: 8083
     path: /mqtt
     username: admin
@@ -132,8 +132,8 @@ ntp:
 # To create a license for an application: https://developer.dji.com/user/apps/#all
 cloud-api:
   app:
-    id: ID155873
-    key: Keyc6c70dade5001424baf8dc5a5c62832
+    id: 155873
+    key: c6c70dade5001424baf8dc5a5c62832
     license: t/8vxjb//Kr0GQwUwehIdvb9j04KErBl83qccylz/xxHHxcTfia3qYi14H9vb/Z2p9217cQHhGJpXtuCBMB5wc4kUWMAcU72lggY0pVcckSRcJKSct/1sK/9HRQ7ekRgTASF6tpuU7ChzXrni0pKw35WoICyYRk5qrP/jRwTL4Y=
 
 livestream:

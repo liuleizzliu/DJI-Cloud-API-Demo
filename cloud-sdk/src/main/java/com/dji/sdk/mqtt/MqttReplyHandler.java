@@ -31,12 +31,13 @@ public class MqttReplyHandler {
         }
         CommonTopicRequest request = (CommonTopicRequest) point.getArgs()[0];
         result.setBid(request.getBid()).setTid(request.getTid()).setTimestamp(System.currentTimeMillis());
-        if (result instanceof TopicEventsResponse) {
-            fillEvents((TopicEventsResponse) result, (TopicEventsRequest) request);
-        } else if (result instanceof TopicRequestsResponse) {
-            validateRequests((TopicRequestsResponse) result, (TopicRequestsRequest) request);
-        } else if (result instanceof TopicStateResponse) {
-            fillState((TopicStateResponse) result, (TopicStateRequest) request);
+        if (result instanceof TopicEventsResponse eventsResult) {
+
+            fillEvents(eventsResult, (TopicEventsRequest) request);
+        } else if (result instanceof TopicRequestsResponse topicRequestsResponse) {
+            validateRequests(topicRequestsResponse, (TopicRequestsRequest) request);
+        } else if (result instanceof TopicStateResponse topicStateResponse) {
+            fillState(topicStateResponse, (TopicStateRequest) request);
         }
         return result;
     }

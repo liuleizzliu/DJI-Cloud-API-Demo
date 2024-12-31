@@ -68,7 +68,6 @@ public class MqttConfiguration {
         DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
         // use byte types uniformly
         converter.setPayloadAsBytes(true);
-
         messageHandler.setAsync(true);
         messageHandler.setDefaultQos(0);
         messageHandler.setConverter(converter);
